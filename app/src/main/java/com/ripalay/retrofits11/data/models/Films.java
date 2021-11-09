@@ -7,6 +7,7 @@ import java.util.List;
 public class Films {
     private String id;
     private String title;
+    private String image;
 
     @SerializedName("original_title")
     private String originalTitle;
@@ -19,6 +20,19 @@ public class Films {
     private String director;
 
     private List<String> people;
+
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public String getReleaseDate() {
         return releaseDate;

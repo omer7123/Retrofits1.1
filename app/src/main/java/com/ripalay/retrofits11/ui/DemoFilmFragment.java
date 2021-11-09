@@ -1,5 +1,6 @@
 package com.ripalay.retrofits11.ui;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,7 +11,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.Request;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.target.SizeReadyCallback;
+import com.bumptech.glide.request.target.Target;
+import com.bumptech.glide.request.transition.Transition;
 import com.ripalay.retrofits11.App;
 import com.ripalay.retrofits11.R;
 import com.ripalay.retrofits11.data.models.Films;
@@ -36,12 +44,15 @@ public class DemoFilmFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         String id;
         id = getArguments().getString("id");
+
+
         App.api.getFilm(id).enqueue(new Callback<Films>() {
             @Override
             public void onResponse(Call<Films> call, Response<Films> response) {
-                if(response.isSuccessful()){
+                if (response.isSuccessful()) {
                     Films film = response.body();
                     binding.progressBar.setVisibility(View.GONE);
+                    Glide.with(requireActivity()).load(film.getImage()).into(binding.avaFilm);
                     binding.titleFilm.setText(film.getTitle());
                     binding.describeFilm.setText(film.getDescription());
                     binding.directorFilm.setText(film.getDirector());

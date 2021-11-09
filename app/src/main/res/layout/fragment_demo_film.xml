@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/homeContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black">
+    android:background="@color/white"
+    android:fitsSystemWindows="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"
-        android:background="@color/black"
+        android:background="@color/white"
+        android:fitsSystemWindows="true"
         tools:context=".ui.DemoFilmFragment">
+
+        <ImageView
+            android:id="@+id/avaFilm"
+            android:layout_width="match_parent"
+            android:layout_height="540dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_ava"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/directorFilm"
@@ -19,29 +32,28 @@
             android:layout_margin="10dp"
             android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@id/avaFilm"
             tools:text="Hayao Miyazaki" />
 
         <TextView
             android:id="@+id/titleFilm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="26dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="460dp"
             android:textColor="@color/white"
-            android:textSize="26sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/directorFilm"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Castle in the Sky" />
 
         <TextView
             android:id="@+id/titleOrigFilm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
+            android:layout_marginStart="10dp"
             android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/titleFilm"
             tools:text="天空の城ラピュタ" />
@@ -50,22 +62,30 @@
             android:id="@+id/describeFilm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:padding="10dp"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/titleOrigFilm"
             tools:text="@string/test_describe" />
 
+        <!--   <ImageView
+               android:id="@+id/avaFilm"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@id/releaseFilm"
+               android:layout_width="200dp"
+               android:layout_height="200dp"/>
+           -->
         <ProgressBar
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/releaseFilm"
@@ -74,7 +94,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="40dp"
             android:paddingBottom="10dp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/describeFilm"
             tools:text="1984" />
